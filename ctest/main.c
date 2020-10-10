@@ -1,8 +1,18 @@
 #include <stdio.h>
 
 /*
- Testing file change
+ example for initializing a 2d array of a given struct
+ 
+ struct item **theShelf = malloc(*shelves * sizeof(struct item *));
+    for (int i = 0; i < *shelves; i++){
+        theShelf[i] = malloc(sizeof(struct item) * *slots);
+        for (int j = 0; j < *slots; j++){
+            strcpy(theShelf[i][j].name, "Nothing!");
+            theShelf[i][j].qItem = 0;
+        }
+    }
  */
+
 struct person{
     char name[20];
     int age;
@@ -25,7 +35,9 @@ void changeNameAndAgeWithPointer(struct person *newMan, char newName[],int newAg
 }
 
 int main() {
-    char myString[20];
+    int myIntegerFromUser = 0;
+    /*code for getting int from user*/
+    char myString[myIntegerFromUser];
     int int1 = 0;
     int int2 = 0;
     struct person *mypersonpointer;
