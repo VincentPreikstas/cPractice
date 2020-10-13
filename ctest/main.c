@@ -13,6 +13,8 @@
     }
  */
 
+/*ORIGINAL DOCUMENT START*/
+/*
 struct person{
     char name[20];
     int age;
@@ -33,11 +35,11 @@ void changeNameAndAgeWithPointer(struct person *newMan, char newName[],int newAg
     strcpy(newMan->name,newName);
     newMan->age = newAge;
 }
-
+*/
+/*
 int main() {
     int myIntegerFromUser = 0;
-    /*code for getting int from user*/
-    char myString[myIntegerFromUser];
+        char myString[myIntegerFromUser];
     int int1 = 0;
     int int2 = 0;
     struct person *mypersonpointer;
@@ -70,7 +72,7 @@ int main() {
     printf("The persons name is %s and they are %d years old\n",myperson.name, myperson.age);
     
      printf("The persons name is %s and they are %d years old\n",mypersonpointer->name, mypersonpointer->age);
-    /*
+    
     addingOneNoPointer(int1);
     printf("Just to check the Number is: %d\n", int1);
     int1 = int1 + 1;
@@ -78,10 +80,40 @@ int main() {
     
     printf("This is in the String: %s\n", myString);
     
-    */
+    
     
     
     return 0;
 }
+*/
+/*ORIGINAL DOC END*/
 
+void getAUserString(char abc[]){
+    fgets(abc,21,stdin);
+}
+
+int main(){
+    
+    char *mypointer;
+    char myStackString[22];
+    mypointer = myStackString;
+    //strcpy(myStackString, "Hello World");
+    printf("Please enter your name: \n");
+    
+    fgets(myStackString, 21, stdin);
+    
+    
+    printf("You entered: %s\n", mypointer);
+    
+    printf("Now enter a different name: \n");
+    
+    getAUserString(myStackString);
+    printf("The new name is: %s\n", mypointer);
+    //printf("Hello world!\n");
+    
+    printf("Now enter a different name: \n");
+    getAUserString(mypointer);
+    printf("The new name is: %s\n", myStackString);
+    return 0;
+}
 
