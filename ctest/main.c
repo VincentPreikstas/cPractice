@@ -19,14 +19,18 @@ int main(){
 
     mypointer = myStackString;
     printf("Please enter number of shelves: \n");
-    fgets(myStackString, 4, stdin);
-    printf (" the number is: %s\n", myStackString);
-    printf("Please enter number of shelves again: \n");
-    scanf ("%10d", &numberShelves);
+    fgets(myStackString, 100, stdin);
+    numberShelves = atoi(myStackString);
+    //printf (" the number is: %d\n", numberShelves);
+    //printf("Please enter number of shelves again: \n");
+    //scanf ("%10d", &numberShelves);
     printf("Please enter number of slots: \n");
-    scanf("%10d", &numberSlots);
-    printf(" number of shelves is %d", numberShelves);
-    printf("the number slots is %d", numberSlots);
+    fgets(myStackString, 100, stdin);
+    numberSlots = atoi(myStackString);
+    printf("number of shelves is %d \n", numberShelves);
+    printf("the number slots is %d \n", numberSlots);
+    
+    
     
     struct item **theShelf = malloc(numberShelves * sizeof(struct item *));
     for (int i =0; i< numberShelves; i++){
@@ -36,7 +40,11 @@ int main(){
             theShelf[i][j].price = 5;
         }
     }
-    printf(" the name and cost of item on shelf  [1] slot [2] is %s and %d" , theShelf[1][2].name, theShelf[1][2].price);
+    
+    strcpy(theShelf[1][2].name, "Genie Lamp");
+    theShelf[1][2].price = 25;
+    
+    printf("the name and cost of item on shelf [1] slot [2] is %s and %d$\n" , theShelf[1][2].name, theShelf[1][2].price);
     
     
     
