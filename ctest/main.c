@@ -1,4 +1,56 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct item{
+    char name[20];
+    int price;
+};
+
+
+int main(){
+    
+    char *mypointer;
+    char myStackString[4];
+    int numberShelves;
+    char *mypointer1;
+    char *mypointer2;
+    int numberSlots;
+
+    mypointer = myStackString;
+    printf("Please enter number of shelves: \n");
+    fgets(myStackString, 4, stdin);
+    printf (" the number is: %s\n", myStackString);
+    printf("Please enter number of shelves again: \n");
+    scanf ("%10d", &numberShelves);
+    printf("Please enter number of slots: \n");
+    scanf("%10d", &numberSlots);
+    printf(" number of shelves is %d", numberShelves);
+    printf("the number slots is %d", numberSlots);
+    
+    struct item **theShelf = malloc(numberShelves * sizeof(struct item *));
+    for (int i =0; i< numberShelves; i++){
+        theShelf[i] = malloc(sizeof(struct item) * numberSlots);
+        for (int j = 0; j< numberSlots; j++){
+            strcpy(theShelf[i][j].name, "No Name");
+            theShelf[i][j].price = 5;
+        }
+    }
+    printf(" the name and cost of item on shelf  [1] slot [2] is %s and %d" , theShelf[1][2].name, theShelf[1][2].price);
+    
+    
+    
+    
+    
+    
+    
+    return 0;
+}
+    
+    
+    
+    
+
 
 /*
  example for initializing a 2d array of a given struct
@@ -87,7 +139,11 @@ int main() {
 }
 */
 /*ORIGINAL DOC END*/
-
+    
+    
+/*
+ 
+ 
 void getAUserString(char abc[]){
     fgets(abc,21,stdin);
 }
@@ -117,3 +173,4 @@ int main(){
     return 0;
 }
 
+*/
